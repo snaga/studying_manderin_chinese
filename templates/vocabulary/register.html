@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>简体字 to 拼音 and 发音</title>
+</head>
+
+<body>
+    <p>
+    <form action="register" method="post">{% csrf_token %}
+简体字: <input name="q" type="text" size="20" value="{{ q }}"><br/>
+<!--
+发音:  <input type="file" name="audio"><br/>
+-->
+        <input type="submit" value="提交">
+    </form>
+    </p>
+
+    <p>
+简体字: {{ q }}
+    </p>
+
+    <p>
+拼音: {{ p }}
+    </p>
+
+    <p>
+发音: <a href="http://translate.google.com/translate_tts?tl=zh-CN&q={{ q }}" target="_blank">Text to Speech</a>
+    </p>
+
+<!--
+{{ engine }}
+-->
+    </body>
+</html>

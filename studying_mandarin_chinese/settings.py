@@ -85,3 +85,35 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+# -----------------------------------------
+#  SQLAlchemy and VCAP_SERVICES
+# -----------------------------------------
+from sqlalchemy import create_engine
+import json
+
+engine = [0]
+
+def initialize():
+    #
+    # If a local VCAP_SERVICES.json file is found,
+    # use it as a config file. (local env)
+    # If not, read from an env variable. (on BlueMix)
+    #
+    try:
+        conf = open(BASE_DIR + '/VCAP_SERVICES.json', 'r')
+        vcap_config = conf.read(1024)
+        conf.close()
+    except IOError:
+        vcap_config = os.environ.get('VCAP_SERVICES')
+
+    print vcap_config
+
+    decoded_config = json.loads(vcap_config)
+    for key, value in decoded_config.iteritems():
+         if key.startswith('postgres'):
+             pgsql_creds = decoded_config[key][0]['credentials']
+    pgsql_uri = str(pgsql_creds['uri'])
+
+    print pgsql_uri
+    engine[0] = create_engine(pgsql_uri)

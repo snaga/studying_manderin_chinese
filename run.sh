@@ -8,4 +8,6 @@ fi
 
 echo port is $SERVER_PORT
 
+rm -f VCAP_SERVICES.json
+
 python manage.py runserver --noreload 0.0.0.0:$SERVER_PORT

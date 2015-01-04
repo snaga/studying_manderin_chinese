@@ -1,3 +1,4 @@
 Django==1.6
 SQLAlchemy==0.9.8
 psycopg2==2.5.4
+xpinyin==0.5.3
