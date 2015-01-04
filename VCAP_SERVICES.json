@@ -1,0 +1,30 @@
+{
+   "postgresql-9.1": [
+      {
+         "name": "postgresql-zs",
+         "label": "postgresql-9.1",
+         "plan": "100",
+         "credentials": {
+            "name": "postgres",
+            "host": "127.0.0.1",
+            "hostname": "127.0.0.1",
+            "port": 5432,
+            "user": "postgres",
+            "username": "postgres",
+            "password": "",
+            "uri": "postgres://postgres:@127.0.0.1:5432/postgres"
+         }
+      }
+   ],
+   "user-provided": [
+      {
+         "name": "Twilio-fr",
+         "label": "user-provided",
+         "credentials": {
+            "url": "https://api.twilio.com",
+            "accountSID": "AC8516d5be9d2f258ba3d80afce93f84fe",
+            "authToken": "576966b4c5502606d1ed108cbd880a7d"
+         }
+      }
+   ]
+}
