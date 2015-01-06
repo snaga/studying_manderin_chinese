@@ -9,7 +9,7 @@
 <body>
     <p>
     <form action="./" method="post">{% csrf_token %}
-简体字: <input name="q" type="text" size="20" value="{{ q }}"><br/>
+简体字: <input name="q" type="text" size="20" value="{{ w.hanji }}"><br/>
 <!--
 发音:  <input type="file" name="audio"><br/>
 -->
@@ -18,19 +18,20 @@
     </p>
 
     <p>
-简体字: {{ q }}
+简体字: {{ w.hanji }}
     </p>
 
     <p>
-拼音: {{ p }}
+拼音: {{ w.pinyin }}
     </p>
 
     <p>
-发音: <a href="http://translate.google.com/translate_tts?tl=zh-CN&q={{ q }}" target="_blank">Text to Speech</a>
+发音: <a href="http://translate.google.com/translate_tts?tl=zh-CN&q={{ w.hanji }}" target="_blank">Text to Speech</a>
     </p>
 
 <!--
 {{ engine }}
+{{ version }}
 -->
     </body>
 </html>
