@@ -7,9 +7,14 @@
 </head>
 
 <body>
+    <p>{{ msg }}</p>
+
     <p>
     <form action="./" method="post">{% csrf_token %}
-Query:<br/>
+        Token:<br/>
+        <input type="password" name="DBQUERY_TOKEN" value="{{ token }}"><br/>
+
+        Query:<br/>
         <textarea name="q" type="text" cols="80" rows="10">{{ q }}</textarea>
         <input type="submit" value="Submit">
     </form>
