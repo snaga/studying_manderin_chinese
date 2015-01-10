@@ -2,23 +2,37 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>简体字 to 拼音 and 发音</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
 
-<p>
-{% for word in word_list %}
-<ul>
-  <li><a href="view?q={{ word.hanji }}">{{ word.hanji }}</a></li>
-</ul>
-{% endfor %}
-</p>
+<div data-role="header">
+    <h1>简体字 to 拼音 and 发音</h1>
+</div>
 
-<p>
-    <a href="register">register</a>
-</p>
+<div role="main" class="ui-content">
+{% for word in word_list %}
+    <a class="ui-btn" href="view?q={{ word.hanji }}" data-ajax="false">{{ word.hanji }}</a>
+{% endfor %}
+</div>
+
+<div data-role="footer">
+<!--
+{{ engine }}
+{{ version }}
+    <a class="ui-btn" href="register">register</a>
+-->
+</div>
+
+</div>
+
 
 </body>
 </html>
