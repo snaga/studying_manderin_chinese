@@ -154,7 +154,7 @@ def result(request):
 
     w = findNextWord(q)
 
-    return HttpResponsePermanentRedirect("/vocabulary/view?q=" + w)
+    return HttpResponseRedirect("/vocabulary/view?q=" + w)
 
 def audio(request):
     q = checkRequestParameter(request, 'q', u'你好')
