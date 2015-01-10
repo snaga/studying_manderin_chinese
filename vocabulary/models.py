@@ -11,8 +11,10 @@ class Word:
     hanji = None
     pinyin = None
     audio = None
+    ja = None
 
-    def __init__(self, hanji, pinyin, audio):
+    def __init__(self, hanji, pinyin, audio, ja):
         self.hanji = hanji
         self.pinyin = pinyin
         self.audio = audio
+        self.ja = ja

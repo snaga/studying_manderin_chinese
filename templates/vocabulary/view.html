@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>简体字 to 拼音 and 发音</title>
+</head>
+
+<body>
+    <p>
+简体字: {{ w.hanji }}<br/>
+拼音: {{ w.pinyin }}<br/>
+发音:  <audio src="audio?q={{ w.hanji }}" autoplay controls>Not Supported</audio><br/>
+日本語: {{ w.ja }}<br/>
+    </p>
+
+<!--
+{{ engine }}
+{{ version }}
+-->
+    </body>
+</html>
