@@ -11,8 +11,8 @@
             "port": 5432,
             "user": "postgres",
             "username": "postgres",
-            "password": "",
-            "uri": "postgres://postgres:@127.0.0.1:5432/postgres"
+            "password": "postgres",
+            "uri": "postgres://postgres:postgres@127.0.0.1:5432/postgres"
          }
       }
    ],

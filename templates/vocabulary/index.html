@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>简体字 to 拼音 and 发音</title>
+</head>
+
+<body>
+
+<p>
+{% for word in word_list %}
+<ul>
+  <li><a href="view?q={{ word.hanji }}">{{ word.hanji }}</a></li>
+</ul>
+{% endfor %}
+</p>
+
+<p>
+    <a href="register">register</a>
+</p>
+
+</body>
+</html>

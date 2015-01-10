@@ -101,10 +101,13 @@ def initialize():
     # If not, read from an env variable. (on BlueMix)
     #
     try:
+        # local dev env
         conf = open(BASE_DIR + '/VCAP_SERVICES.json', 'r')
         vcap_config = conf.read(1024)
         conf.close()
+        os.environ["DBQUERY_TOKEN"] = 'local'
     except IOError:
+        # bluemix prod env
         vcap_config = os.environ.get('VCAP_SERVICES')
 
     print vcap_config
