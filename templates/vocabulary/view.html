@@ -2,21 +2,69 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>简体字 to 拼音 and 发音</title>
-</head>
 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+<script language="JavaScript">
+function playAudio()
+{
+    document.getElementById('audio').play();
+}
+
+function setButtonText(id, text)
+{
+    document.getElementById(id).textContent = text
+}
+</script>
+</head>
 <body>
+
+<div data-role="page" data-title="Studying Mandarin Chinese">
+
+<div data-role="header">
+<h1>{{ w.hanji }}</h1>
+</div>
+
+<div role="main" class="ui-content">
+
+<!--    <button class="ui-btn" onClick="playAudio()">发音</button> -->
+    <button id="pinyin" class="ui-btn" onClick="setButtonText('pinyin', '{{ w.pinyin }}')">拼音</button>
+    <center>
+        <audio id="audio" src="audio?q={{ w.hanji }}" controls preload="auto">Not Supported</audio>
+    </center>
+    <button id="ja-JP" class="ui-btn" onClick="setButtonText('ja-JP', '{{ w.ja }}')">日本語</button>
+
+    <center>
+        <a id="success" class="ui-btn ui-btn-inline" href="./result?q={{ w.hanji }}&r=1">正解</a>
+        <a id="fail" class="ui-btn ui-btn-inline" href="./result?q={{ w.hanji }}&r=0">不正解</a>
+    </center>
+
+<!--
     <p>
 简体字: {{ w.hanji }}<br/>
 拼音: {{ w.pinyin }}<br/>
-发音:  <audio src="audio?q={{ w.hanji }}" autoplay controls>Not Supported</audio><br/>
-日本語: {{ w.ja }}<br/>
+发音:  <audio id="audio" src="audio?q={{ w.hanji }}" controls>Not Supported</audio><br/>
+        日本語: {{ w.ja }}<br/>
     </p>
+-->
 
+</div>
+
+<div data-role="footer">
 <!--
 {{ engine }}
 {{ version }}
 -->
-    </body>
+</div>
+
+</div>
+
+</body>
+
 </html>

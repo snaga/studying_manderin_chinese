@@ -52,6 +52,29 @@ def findWord(hanji):
     disconnectDatabase(con)
     return w
 
+def findNextWord(hanji):
+    print settings.engine
+    settings.initialize()
+
+    con = connectDatabase()
+
+    query = "SELECT hanji FROM word WHERE hanji > '" + hanji + "' ORDER BY hanji LIMIT 1";
+    print("query: " + query.encode('utf-8'))
+    rs = con.execute(query)
+
+    # in case reaching the end of the list
+    if rs.rowcount == 0:
+        query = "SELECT hanji FROM word ORDER BY hanji LIMIT 1";
+        print("query: " + query.encode('utf-8'))
+        rs = con.execute(query)
+
+    w = None
+    for row in rs:
+        w = row['hanji']
+
+    disconnectDatabase(con)
+    return w
+
 def allWords():
     word_list = []
 
@@ -125,6 +148,13 @@ def view(request):
         'engine': settings.engine,
     })
     return HttpResponse(template.render(context))
+
+def result(request):
+    q = checkRequestParameter(request, 'q', None)
+
+    w = findNextWord(q)
+
+    return HttpResponsePermanentRedirect("/vocabulary/view?q=" + w)
 
 def audio(request):
     q = checkRequestParameter(request, 'q', u'你好')
