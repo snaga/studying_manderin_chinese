@@ -40,8 +40,8 @@ function setButtonText(id, text)
     <button id="ja-JP" class="ui-btn" onClick="setButtonText('ja-JP', '{{ w.ja }}')">日本語</button>
 
     <center>
-        <a id="success" class="ui-btn ui-btn-inline" href="./result?q={{ w.hanji }}&r=1">正解</a>
-        <a id="fail" class="ui-btn ui-btn-inline" href="./result?q={{ w.hanji }}&r=0">不正解</a>
+        <a id="success" class="ui-btn ui-btn-inline" href="./result?q={{ w.hanji }}&r=1" data-ajax="false">正解</a>
+        <a id="fail" class="ui-btn ui-btn-inline" href="./result?q={{ w.hanji }}&r=0" data-ajax="false">不正解</a>
     </center>
 
 <!--
